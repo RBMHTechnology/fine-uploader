@@ -727,6 +727,22 @@ declare module "fine-uploader/lib/core" {
         done(callback: Function): PromiseOptions;
 
         /**
+         * Configure the mode parameters are added to the request.
+         * 
+         * `qq.paramsMode.paramsInBody` sends params in the request body.
+         * `qq.paramsMode.paramsInUrl` sends params in the request url.
+         * `qq.paramsMode.paramsInHeader` sends params in the request header.
+         * 
+         * @default `qq.paramsMode.paramsInBody`
+         */
+        paramsMode?: paramsMode;
+
+        /**
+         * The prefix for parameters sent in the request's header. Only matters if `paramsMode` is set to `qq.paramsMode.paramsInHeader`
+         */
+        headerParamPrefix?: string;
+
+        /**
          * Call this on a promise to indicate success.
          * The parameter values will depend on the situation.
          *
@@ -1737,6 +1753,12 @@ declare module "fine-uploader/lib/core" {
          * @default `true`
          */
         ios8SafariUploads?: boolean;
+    }
+
+    export enum paramsMode {
+        paramsInBody,
+        paramsInHeader,
+        paramsInUri
     }
 
 
@@ -3635,5 +3657,4 @@ declare module "fine-uploader/lib/s3" {
             key?: string;
         }
     }
-
 }

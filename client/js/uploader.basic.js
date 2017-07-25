@@ -26,6 +26,7 @@
                 params: {},
                 paramsInBody: true,
                 requireSuccessJson: true,
+                paramsMode: qq.paramsMode.paramsInBody,
                 totalFileSizeName: "qqtotalfilesize",
                 uuidName: "qquuid"
             },
